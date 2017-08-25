@@ -36,7 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:onClick="error1"
                 android:id="@+id/error1"
                 android:visibility="gone"
                 android:text="@string/error_text"/>
@@ -72,7 +71,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:id="@+id/error2"
-                android:onClick="error2"
                 android:visibility="gone"
                 android:text="@string/error_text"/>
         </FrameLayout>
@@ -106,7 +104,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:id="@+id/error3"
-                android:onClick="error3"
                 android:visibility="gone"
                 android:text="@string/error_text"/>
         </FrameLayout>

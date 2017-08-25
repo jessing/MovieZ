@@ -31,7 +31,7 @@ import zh.ou.movie.ui.adapter.MovieAdapter;
  * email:   13617694689@163.com
  */
 
-public class MainFragment extends Fragment implements MainView{
+public class MainFragment extends Fragment implements MainView, View.OnClickListener {
     Unbinder unbinder;
     private Activity activity;
     private MainPresenter mainPresenter;
@@ -85,6 +85,9 @@ public class MainFragment extends Fragment implements MainView{
         recyclerViewPopular.setLayoutManager(linearLayoutManager1);
         recyclerViewUpComing.setLayoutManager(linearLayoutManager2);
         recyclerViewTopRate.setLayoutManager(linearLayoutManager3);
+        error1.setOnClickListener(this);
+        error2.setOnClickListener(this);
+        error3.setOnClickListener(this);
         mainPresenter = new MainPresenter(this);
         mainPresenter.subscribe();
     }
@@ -168,13 +171,22 @@ public class MainFragment extends Fragment implements MainView{
         super.onDestroyView();
         unbinder.unbind();
     }
-    public void error1(View view){
-        mainPresenter.getPopular();
-    }
-    public void error2(View view){
-        mainPresenter.getUpComing();
-    }
-    public void error3(View view){
-        mainPresenter.getTopRate();
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.error1:
+                mainPresenter.getPopular();
+                error1.setVisibility(View.GONE);
+                break;
+            case R.id.error2:
+                mainPresenter.getUpComing();
+                error2.setVisibility(View.GONE);
+                break;
+            case R.id.error3:
+                mainPresenter.getTopRate();
+                error3.setVisibility(View.GONE);
+                break;
+        }
     }
 }

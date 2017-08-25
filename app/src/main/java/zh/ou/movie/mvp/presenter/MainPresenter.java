@@ -39,9 +39,6 @@ public class MainPresenter implements IMainPresenter{
 
     @Override
     public void subscribe() {
-        mainView.showProgress1();
-        mainView.showProgress2();
-        mainView.showProgress3();
         getGenres();
         if(MovieHubPrefs.getConfiguration(App.getContext()) == null){
             getConfiguration();
@@ -74,6 +71,7 @@ public class MainPresenter implements IMainPresenter{
 
     @Override
     public void getPopular() {
+        mainView.showProgress1();
         subscription1 = ServiceGenerator.createService(MovieService.class,new AuthorizedNetworkInterceptor())
                 .getPopular(1)
         .subscribeOn(Schedulers.io())
@@ -108,6 +106,7 @@ public class MainPresenter implements IMainPresenter{
 
     @Override
     public void getTopRate() {
+        mainView.showProgress3();
         subscription2 = ServiceGenerator.createService(MovieService.class,new AuthorizedNetworkInterceptor())
                 .getTopRate(1)
                 .subscribeOn(Schedulers.io())
@@ -143,6 +142,7 @@ public class MainPresenter implements IMainPresenter{
 
     @Override
     public void getUpComing() {
+        mainView.showProgress2();
         subscription3 = ServiceGenerator.createService(MovieService.class,new AuthorizedNetworkInterceptor())
                 .getUpComing(1)
                 .subscribeOn(Schedulers.io())
