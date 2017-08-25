@@ -5,22 +5,32 @@
     android:layout_height="match_parent"
     xmlns:fresco="http://schemas.android.com/apk/res-auto">
 
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/iv_item_detail"
+        <FrameLayout
             android:layout_width="280dp"
             android:layout_height="280dp"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerCrop"
-            fresco:placeholderImage="@drawable/place_holder"
-            fresco:roundedCornerRadius="15dp"
-            />
+            android:id="@+id/frame_detail"
+            android:layout_gravity="center_horizontal">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/iv_item_detail"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:scaleType="centerCrop"
+                fresco:placeholderImage="@drawable/place_holder"
+                fresco:roundedCornerRadius="15dp"
+                />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/play"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
 
         <TextView
             android:id="@+id/tv_name_item_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_item_detail"
+            android:layout_below="@+id/frame_detail"
             android:textColor="@color/title_color"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"/>
