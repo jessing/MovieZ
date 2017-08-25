@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MovieZ</string>
+    <string name="error_text">Load Error\nPlease click and tyr again</string>
+    <string name="release">Release : </string>
+    <string name="popular">Popular</string>
+    <string name="up_coming">Up Coming</string>
+    <string name="top_rate">Top Rate</string>
+    <string name="search_hint">Title</string>
+</resources>

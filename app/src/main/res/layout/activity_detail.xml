@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_shape">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_menu"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:onClick="back"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="@dimen/card_padding"
+        android:paddingRight="@dimen/card_padding"/>
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_item_detail"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            fresco:placeholderImage="@drawable/place_holder"
+            fresco:roundedCornerRadius="15dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_name_item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_item_detail"
+            android:textColor="@color/title_color"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_desc_item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_name_item_detail"
+            android:textColor="@android:color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_desc_item_detail">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/release"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/tv_release_item_detail"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/tv_type_item_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:maxWidth="200dp"
+                android:textColor="@android:color/white" />
+
+            <zh.ou.movie.view.ProgressView
+                android:id="@+id/progress_item_detail"
+                android:layout_width="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="50dp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
