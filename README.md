@@ -2,7 +2,7 @@
 In the app,you can find the popular movies,the up coming movies,the top rate movies,also you can search the movie by name,the most important is that you can see the Trailer，is that interesting?
 
 
-![MovieZ](https://github.com/jessing/MovieZ/tree/master/app/src/main/res/mipmap-hdpi/ic_launcher.png)
+![MovieZ](https://raw.githubusercontent.com/jessing/MovieZ/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 ## Overview
 
@@ -17,5 +17,5 @@ Otherwise you can just download the .APK in <a href="https://github.com/jessing/
 Or you can download <a href="https://play.google.com/store/apps/details?id=zh.ou.movie">App</a> from Google Play Store
 ## Screencast
 
-[![MovieHub](https://github.com/jessing/MovieZ/tree/master/images/Screenshot_20170828-143648.png)]
+[![MovieHub](https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143648.png)]
 
