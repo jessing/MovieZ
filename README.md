@@ -19,6 +19,6 @@ Otherwise you can just download the .APK in <a href="https://github.com/jessing/
 Or you can download App from <a href="https://play.google.com/store/apps/details?id=zh.ou.movie">Google Play Store</a>
 ## Screencast
 
-(https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143648.png)
-(https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143642.png)
+[![MovieZ](https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143648.png)]
+[![MovieZ](https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143642.png)]
 
