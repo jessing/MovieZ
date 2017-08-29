@@ -106,7 +106,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView{
     @Override
     public void showEmpty() {
         tvEmpty.setVisibility(View.VISIBLE);
-        tvEmpty.setText("can not search anything");
+        tvEmpty.setText(R.string.search_empty);
     }
     public void hideSoftKeyboard(View view) {
         if (view == null) return;

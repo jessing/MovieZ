@@ -22,7 +22,14 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/play"
+                android:id="@+id/iv_play_detail"
                 android:layout_gravity="center"/>
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/pb_detail"
+                android:visibility="gone"/>
         </FrameLayout>
 
 

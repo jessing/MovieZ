@@ -8,14 +8,15 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/action_image_width"
+            android:layout_height="@dimen/action_image_width"
             android:src="@drawable/ic_menu"
             android:layout_marginLeft="10dp"
+            android:onClick="menu"
             android:layout_centerVertical="true"/>
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/action_image_width"
+            android:layout_height="@dimen/action_image_width"
             android:src="@drawable/ic_back"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"

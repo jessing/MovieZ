@@ -15,8 +15,8 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/action_image_width"
+                android:layout_height="@dimen/action_image_width"
                 android:src="@drawable/ic_back"
                 android:layout_marginLeft="10dp"
                 android:onClick="back"

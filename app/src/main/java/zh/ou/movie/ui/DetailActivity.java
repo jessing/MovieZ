@@ -18,6 +18,7 @@ import zh.ou.movie.http.response.MovieResponse;
 import zh.ou.movie.ui.adapter.MoviePageAdapter;
 
 import static zh.ou.movie.R.id.pager;
+import static zh.ou.movie.util.AppUtil.showAbout;
 
 /**
  * author:   zhoux
@@ -67,4 +68,8 @@ public class DetailActivity extends AppCompatActivity{
     public void back(View view){
         onBackPressed();
     }
+    public void menu(View view){
+        showAbout(this);
+    }
+
 }

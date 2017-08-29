@@ -1,5 +1,7 @@
 package zh.ou.movie.ui.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,18 +12,25 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import zh.ou.movie.App;
 import zh.ou.movie.C;
 import zh.ou.movie.R;
 import zh.ou.movie.http.response.Genres;
 import zh.ou.movie.http.response.MovieResponse;
+import zh.ou.movie.mvp.presenter.VideoPresenter;
+import zh.ou.movie.mvp.view.VideoView;
+import zh.ou.movie.ui.FragmentDemoActivity;
 import zh.ou.movie.util.MovieHubPrefs;
 import zh.ou.movie.view.ProgressView;
 
@@ -34,8 +43,10 @@ import static zh.ou.movie.util.StringUtils.getPosterUrl;
  * email:   13617694689@163.com
  */
 
-public class DetailFragment extends Fragment{
+public class DetailFragment extends Fragment implements VideoView {
     Unbinder unbinder;
+    @BindView(R.id.pb_detail)
+    ProgressBar pb;
     @BindView(R.id.iv_item_detail)
     SimpleDraweeView imageView;
     @BindView(R.id.tv_name_item_detail)
@@ -48,7 +59,18 @@ public class DetailFragment extends Fragment{
     TextView tvRelease;
     @BindView(R.id.progress_item_detail)
     ProgressView progressView;
+    @BindView(R.id.iv_play_detail)
+    ImageView ivPlay;
     private MovieResponse.ResultsBean result;
+    private VideoPresenter presenter;
+    private Activity activity;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.activity = activity;
+    }
+
     public static DetailFragment newInstance(MovieResponse.ResultsBean result){
         DetailFragment  fragment = new DetailFragment();
         Bundle bundle = new Bundle();
@@ -76,6 +98,7 @@ public class DetailFragment extends Fragment{
         setType();
         tvRelease.setText(result.getRelease_date());
         progressView.setProgress((float) result.getVote_average());
+        presenter = new VideoPresenter(this);
         return rootView;
     }
     Handler handler = new Handler(){
@@ -128,5 +151,39 @@ public class DetailFragment extends Fragment{
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        presenter.unSubscribe();
+    }
+
+    @Override
+    public void showProgress() {
+        pb.setVisibility(View.VISIBLE);
+        ivPlay.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void hideProgress() {
+        pb.setVisibility(View.GONE);
+        ivPlay.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void success(String key) {
+        Intent intent = new Intent(activity, FragmentDemoActivity.class);
+        intent.putExtra("movie_key",key);
+        activity.startActivity(intent);
+    }
+
+    @Override
+    public void error(String error) {
+        Toast.makeText(activity,error,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void empty() {
+        Toast.makeText(activity,R.string.no_trailer,Toast.LENGTH_SHORT).show();
+    }
+    @OnClick(R.id.iv_play_detail)
+    void play(){
+        presenter.getVideo(result.getId());
     }
 }

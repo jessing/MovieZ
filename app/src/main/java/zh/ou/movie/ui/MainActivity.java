@@ -8,6 +8,8 @@ import android.view.View;
 import zh.ou.movie.R;
 import zh.ou.movie.ui.fragment.MainFragment;
 
+import static zh.ou.movie.util.AppUtil.showAbout;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.main_container,new MainFragment()).commit();
     }
     public void menu(View view){
-
+        showAbout(this);
     }
     public void search(View view){
         startActivity(new Intent(this,SearchActivity.class));

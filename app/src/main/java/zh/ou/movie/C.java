@@ -16,4 +16,6 @@ public class C {
     public static final String language_en = "en_US";
     public static final boolean DEBUG = true;
 
+    public static final String youtube_key = "AIzaSyCrzne1GHoD-_xHwcPSfEA8Yni_dOQjdv0";
+
 }

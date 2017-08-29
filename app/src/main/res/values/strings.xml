@@ -6,4 +6,10 @@
     <string name="up_coming">Up Coming</string>
     <string name="top_rate">Top Rate</string>
     <string name="search_hint">Title</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="playerfragment_text">This is a YouTubePlayerFragment!</string>
+    <string name="no_trailer">this movie has no Trailer</string>
+    <string name="search_empty">can not search anything</string>
+    <string name="desc_app">In the app,you can find the popular movies,the up coming movies,the top rate movies,also you can search the movie by name,the most important is that you can see the Trailer，is that interesting?</string>
+    <string name="about">About</string>
 </resources>
