@@ -16,8 +16,9 @@ In order to play YouTube video, you have to go to the <a href="https://developer
 
 Otherwise you can just download the .APK in <a href="https://github.com/jessing/MovieZ/tree/master/app/app-release1.1.apk">Releases</a>
 
-Or you can download <a href="https://play.google.com/store/apps/details?id=zh.ou.movie">App</a> from Google Play Store
+Or you can download App from <a href="https://play.google.com/store/apps/details?id=zh.ou.movie">Google Play Store</a>
 ## Screencast
 
-[![MovieHub](https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143648.png)]
+(https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143648.png)
+(https://raw.githubusercontent.com/jessing/MovieZ/master/images/Screenshot_20170828-143642.png)
 
