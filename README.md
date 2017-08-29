@@ -10,7 +10,9 @@ In the app,you can find the popular movies,the up coming movies,the top rate mov
 
 Showcases popular movies, up coming movies,top rate movies, and search movies from <a href="https://www.themoviedb.org/documentation/api">The Movie Database</a>.
 
-In order to run this project, you must <a href="https://www.themoviedb.org/account/signup">Sign Up</a> to get an api_key.  Then you can store your api_key into `/res/values/defaults.xml` .
+In order to run this project, you must <a href="https://www.themoviedb.org/account/signup">Sign Up</a> to get an api_key.  Then you can store your api_key into C.api_key .
+
+In order to play YouTube video, you have to go to the <a href="https://developers.google.com/youtube/android/player/">YouTube API</a> administration center to apply for the key
 
 Otherwise you can just download the .APK in <a href="https://github.com/jessing/MovieZ/tree/master/app/app-release1.1.apk">Releases</a>
 
