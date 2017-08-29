@@ -11,6 +11,11 @@
     <string name="playerfragment_text">这是一个 YouTubePlayerFragment!</string>
     <string name="no_trailer">此电影暂无预告片</string>
     <string name="search_empty">暂无内容</string>
-    <string name="desc_app">在应用程序中，你可以找到热门电影，即将上映的电影，一流的电影，你也可以按名称搜索电影，最重要的是，你可以看到预告片，这是有趣的吗？</string>
+    <string name="desc_app">在应用程序中，你可以找到热门电影，即将上映的电影，一流的电影，你也可以按名称搜索电影，最重要的是，你可以看到预告片，是不是很有趣？</string>
     <string name="about">关于</string>
+    <string name="rate">为我们评分</string>
+    <string name="share">分享给好友</string>
+    <string name="share_text" formatted="false">请前往 %s 看看 %s 吧,非常感谢！</string>
+    <string name="share_subject">分享</string>
+
 </resources>

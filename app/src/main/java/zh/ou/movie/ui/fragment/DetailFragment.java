@@ -2,6 +2,7 @@ package zh.ou.movie.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,10 +35,10 @@ import zh.ou.movie.http.response.Genres;
 import zh.ou.movie.http.response.MovieResponse;
 import zh.ou.movie.mvp.presenter.VideoPresenter;
 import zh.ou.movie.mvp.view.VideoView;
-import zh.ou.movie.ui.FragmentDemoActivity;
 import zh.ou.movie.util.MovieHubPrefs;
 import zh.ou.movie.view.ProgressView;
 
+import static android.app.Activity.RESULT_OK;
 import static zh.ou.movie.util.StringUtils.getLanguage;
 import static zh.ou.movie.util.StringUtils.getPosterUrl;
 
@@ -64,7 +69,8 @@ public class DetailFragment extends Fragment implements VideoView {
     private MovieResponse.ResultsBean result;
     private VideoPresenter presenter;
     private Activity activity;
-
+    private static final int REQ_START_STANDALONE_PLAYER = 1;
+    private static final int REQ_RESOLVE_SERVICE_MISSING = 2;
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -168,11 +174,24 @@ public class DetailFragment extends Fragment implements VideoView {
 
     @Override
     public void success(String key) {
-        Intent intent = new Intent(activity, FragmentDemoActivity.class);
-        intent.putExtra("movie_key",key);
-        activity.startActivity(intent);
-    }
+//        Intent intent = new Intent(activity, FragmentDemoActivity.class);
+//        intent.putExtra("movie_key",key);
+//        activity.startActivity(intent);
 
+        Intent intent = YouTubeStandalonePlayer.createVideoIntent(
+                activity, C.youtube_key, key, 0, true, false);
+        if (canResolveIntent(intent)) {
+            startActivityForResult(intent, REQ_START_STANDALONE_PLAYER);
+        } else {
+            // Could not resolve the intent - must need to install or update the YouTube API service.
+            YouTubeInitializationResult.SERVICE_MISSING
+                    .getErrorDialog(activity, REQ_RESOLVE_SERVICE_MISSING).show();
+        }
+    }
+    private boolean canResolveIntent(Intent intent) {
+        List<ResolveInfo> resolveInfo = activity.getPackageManager().queryIntentActivities(intent, 0);
+        return resolveInfo != null && !resolveInfo.isEmpty();
+    }
     @Override
     public void error(String error) {
         Toast.makeText(activity,error,Toast.LENGTH_SHORT).show();
@@ -185,5 +204,21 @@ public class DetailFragment extends Fragment implements VideoView {
     @OnClick(R.id.iv_play_detail)
     void play(){
         presenter.getVideo(result.getId());
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQ_START_STANDALONE_PLAYER && resultCode != RESULT_OK) {
+            YouTubeInitializationResult errorReason =
+                    YouTubeStandalonePlayer.getReturnedInitializationResult(data);
+            if (errorReason.isUserRecoverableError()) {
+                errorReason.getErrorDialog(activity, 0).show();
+            } else {
+                String errorMessage =
+                        String.format(getString(R.string.error_player), errorReason.toString());
+                Toast.makeText(activity, errorMessage, Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
